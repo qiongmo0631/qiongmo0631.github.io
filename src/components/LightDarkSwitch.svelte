@@ -12,6 +12,13 @@ import { onMount } from "svelte";
 import type { LIGHT_DARK_MODE } from "@/types/config.ts";
 
 const seq: LIGHT_DARK_MODE[] = [LIGHT_MODE, DARK_MODE, AUTO_MODE];
+
+// 这个组件没有自己的 props。显式接收 rest props 是为了让类型推导出
+// Record<string, unknown> 而不是 Record<string, never>，否则 Astro 的
+// client:only 指令会触发 ts(2322) 类型错误。
+let { ...restProps }: Record<string, unknown> = $props();
+void restProps;
+
 let mode: LIGHT_DARK_MODE = $state(AUTO_MODE);
 
 onMount(() => {
