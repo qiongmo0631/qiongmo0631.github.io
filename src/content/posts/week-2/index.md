@@ -2,7 +2,7 @@
 title: 第二周周报
 published: 2026-11-22
 description: XSS 三种类型的原理与绕过姿势，复现 spark CTF 中借 Jinja2 SSTI 逃逸沙箱的题目。
-image: ''
+image: 'cover.jpg'
 tags: [CTF, XSS, SSTI, 周报]
 category: 周报
 draft: false

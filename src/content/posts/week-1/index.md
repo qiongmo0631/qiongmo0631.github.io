@@ -2,7 +2,7 @@
 title: 第一周的周报
 published: 2026-11-15
 description: 从一道 PHP 无参 RCE 面试题拆解伪协议与正则绕过，外加 ISCTF 赛题的复现记录。
-image: ''
+image: 'cover.jpg'
 tags: [CTF, PHP, RCE, 周报]
 category: 周报
 draft: false

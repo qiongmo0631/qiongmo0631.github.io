@@ -150,3 +150,51 @@
     }
   }
 }
+
+/* ============================================================
+   樱花飘落装饰（纯 CSS，无外部图片）
+   想关掉：把下面 body::before / body::after 两块的 content 改成 none
+   ============================================================ */
+@keyframes sakura-fall {
+    from { background-position: 0 -160px, 0 -230px, 0 -300px; }
+    to   { background-position: 0 160px, 0 230px, 0 300px; }
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-repeat: repeat;
+    will-change: background-position;
+    animation: sakura-fall 24s linear infinite;
+}
+
+body::before {
+    z-index: 30;
+    opacity: 0.55;
+    background-image:
+        radial-gradient(ellipse 3px 5px at 22% 18%, rgba(255, 183, 197, 0.95), rgba(255, 183, 197, 0) 72%),
+        radial-gradient(ellipse 3px 6px at 68% 52%, rgba(255, 214, 224, 0.9), rgba(255, 214, 224, 0) 72%),
+        radial-gradient(ellipse 2px 4px at 44% 86%, rgba(255, 240, 245, 0.9), rgba(255, 240, 245, 0) 72%);
+    background-size: 160px 160px, 230px 230px, 300px 300px;
+}
+
+body::after {
+    z-index: 31;
+    opacity: 0.35;
+    animation-duration: 15s;
+    background-image:
+        radial-gradient(ellipse 2px 4px at 12% 30%, rgba(255, 183, 197, 0.9), rgba(255, 183, 197, 0) 72%),
+        radial-gradient(ellipse 2px 5px at 78% 72%, rgba(255, 214, 224, 0.85), rgba(255, 214, 224, 0) 72%);
+    background-size: 110px 110px, 190px 190px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none;
+        opacity: 0.2;
+    }
+}
